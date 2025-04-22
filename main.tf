@@ -7,6 +7,14 @@ resource "aws_security_group" "node_server_sg" {
   description = "Allow inbound HTTP traffic on port 3000"
 
   ingress {
+    description = "Allow SSH from anywhere"  # (restrict to my IP later)
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
     from_port   = 3000
     to_port     = 3000
     protocol    = "tcp"
