@@ -21,6 +21,10 @@ resource "aws_security_group" "node_server_sg" {
   }
 }
 
+resource "aws_eip" "node_server_eip" {
+  instance = aws_instance.node_server.id
+}
+
 resource "aws_instance" "node_server" {
   ami           = var.ami_id
   instance_type = var.instance_type

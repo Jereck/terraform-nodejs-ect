@@ -1,0 +1,13 @@
+{
+  "name": "terraform-node-app",
+  "version": "1.0.0",
+  "description": "A Node.js app deployed via Terraform on AWS EC2",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Jake Reck",
+  "license": "MIT",
+  "type": "commonjs"
+}
