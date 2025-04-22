@@ -6,7 +6,7 @@ const port = 3000;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello from a real Node.js app deployed with Terraform and PM2!');
+  res.end('This is Jake Recks backend server!');
 });
 
 server.listen(port, hostname, () => {
