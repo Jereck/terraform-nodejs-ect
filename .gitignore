@@ -3,3 +3,6 @@
 *.tfstate.backup
 *.pem
 *.csv
+
+github-actions-deploy-key
+github-actions-deploy-key.pub
