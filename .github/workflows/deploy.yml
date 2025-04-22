@@ -25,7 +25,7 @@ jobs:
           rm -rf /home/deploy/node-app
 
           # Clone fresh
-          git clone https://github.com/Jereck/terraform-nodejs-ect node-app /home/deploy/node-app
+          git clone https://github.com/Jereck/terraform-nodejs-ect.git node-app /home/deploy/node-app
 
           # Go into app
           cd /home/deploy/node-app
