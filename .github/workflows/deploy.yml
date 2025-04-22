@@ -24,11 +24,25 @@ jobs:
           # Clean up old app if it exists
           rm -rf /home/deploy/node-app
 
-          # Clone fresh
-          git clone https://github.com/Jereck/terraform-nodejs-ect.git node-app /home/deploy/node-app
-
-          # Go into app
+          # Make a fresh folder
+          mkdir -p /home/deploy/node-app
           cd /home/deploy/node-app
+
+          # Initialize git
+          git init
+
+          # Clone fresh
+          git clone https://github.com/Jereck/terraform-nodejs-ect.git
+
+          # Enable sparse checkout
+          git sparse-checkout init --cone
+          git sparse-checkout set node-app
+
+          # Pull only the node-app folder
+          git pull origin main
+
+          # Move into node-app folder
+          cd node-app
 
           # Install dependencies
           npm install
