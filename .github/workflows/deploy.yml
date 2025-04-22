@@ -21,8 +21,19 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          # Clean up old app if it exists
+          rm -rf /home/deploy/node-app
+
+          # Clone fresh
+          git clone https://github.com/Jereck/terraform-nodejs-ect node-app /home/deploy/node-app
+
+          # Go into app
           cd /home/deploy/node-app
-          git fetch --all
-          git reset --hard origin/main
+
+          # Install dependencies
           npm install
-          pm2 restart node-server
+
+          # Start or restart app with PM2
+          pm2 delete node-server || true
+          pm2 start server.js --name node-server
+          pm2 save
